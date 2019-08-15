@@ -41,7 +41,7 @@ public class _00_ArrayCheatSheet {
 			}
 		}
 		//9 print the entire array to see if step 8 was correct
-		
+		System.out.println(infinityStones[69]);
 		//10. print the largest number in the array.
 		
 		
