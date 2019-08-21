@@ -21,48 +21,72 @@ public class _01_RobotRace {
 			robot.setY(300);
 			robot.miniaturize();
 			robot.setX(10*lineUp);
-			robot.setSpeed(10);
+			robot.setSpeed(100);
 		}
 		
-		int robot1Holder = rob[0].getX();
-		int robot1HolderY = rob[0].getY();
-		int robot2Holder = rob[1].getX();
-		int robot2HolderY = rob[1].getY();
-		int robot3Holder = rob[2].getX();
-		int robot3HolderY = rob[2].getY();
-		int robot4Holder = rob[3].getX();
-		int robot4HolderY = rob[3].getY();
-		int robot5Holder = rob[4].getX();
-		int robot5HolderY = rob[4].getY();
+		Boolean yeet = false;
+		int winner = 0;
+		
+		rob[0].penDown();
+		rob[1].penDown();
+		rob[2].penDown();
+		rob[3].penDown();
+		rob[4].penDown();
 		
 		
-	while(	(robot1Holder > 390 && robot1Holder < 409) && (robot1HolderY > 300 && robot1HolderY < 310) &&
-			(robot2Holder > 390 && robot2Holder < 409) && (robot2HolderY > 300 && robot2HolderY < 310) &&
-			(robot3Holder > 390 && robot3Holder < 409) && (robot3HolderY > 300 && robot3HolderY < 310) &&
-			(robot4Holder > 390 && robot4Holder < 409) && (robot4HolderY > 300 && robot4HolderY < 310) &&
-			(robot5Holder > 390 && robot5Holder < 409) && (robot5HolderY > 300 && robot5HolderY < 310)
-			) 
+		
+	while(!yeet)
+
 	{
-		for(int k = 0; k < rob.length; k++) {
-			Random randy = new Random();
-				rob[k].turn(1);
-				rob[k].move(randy.nextInt(5));	
+			for(int k = 0; k < rob.length; k++) {
+				Random randy = new Random();
+					for(int OwO = randy.nextInt(5); OwO > 0; OwO--) {
+						rob[k].turn(1);
+						rob[k].move(1);
+						//System.out.println(rob[k].getX());
+						//System.out.println(rob[k].getY());
+						if((rob[k].getX() == 389 ||
+							rob[k].getX() == 399 ||
+							rob[k].getX() == 419 ||
+							rob[k].getX() == 429 ||
+							rob[k].getX() == 439 )&&
+							(rob[k].getY() == 301)
+							) {
+							yeet = true;
+							if(rob[k] == rob[1]) {
+								winner = 1;
+							}
+							else if(rob[k] == rob[2]) {
+								winner = 2;
+							}
+							else if(rob[k] == rob[3]) {
+								winner = 3;
+							}
+							else if(rob[k] == rob[4]) {
+								winner = 4;
+							}
+							else if(rob[k] == rob[5]) {
+								winner = 5;
+							}
+						}
+					}
+				
 
 		}
 	}
-	if(rob[0].getY() == 300 ||rob[0].getY() == 301 ||rob[0].getY() == 302 ||rob[0].getY() == 303 ||rob[0].getY() == 304 ||rob[0].getY() == 305 ||rob[0].getY() == 306 ||rob[0].getY() == 307 ||rob[0].getY() == 308 ||rob[0].getY() == 309 && rob[0].getX() == 400) {
+	if(winner == 1) {
 		JOptionPane.showMessageDialog(null, "Robot #1 Wins! Yay!");
 	}
-	else if(rob[1].getY() == 300 ||rob[0].getY() == 301 ||rob[1].getY() == 302 ||rob[1].getY() == 303 ||rob[1].getY() == 304 ||rob[1].getY() == 305 ||rob[1].getY() == 306 ||rob[1].getY() == 307 ||rob[1].getY() == 308 ||rob[1].getY() == 309 && rob[1].getX() == 410) {
+	else if(winner == 2) {
 		JOptionPane.showMessageDialog(null, "Robot #2 Wins! Yay!");
 	}
-	else if(rob[2].getY() == 300 ||rob[0].getY() == 301 ||rob[2].getY() == 302 ||rob[2].getY() == 303 ||rob[2].getY() == 304 ||rob[2].getY() == 305 ||rob[2].getY() == 306 ||rob[2].getY() == 307 ||rob[2].getY() == 308 ||rob[2].getY() == 309 && rob[2].getX() == 420) {
+	else if(winner == 3) {
 		JOptionPane.showMessageDialog(null, "Robot #3 Wins! Yay!");
 	}
-	else if(rob[3].getY() == 300 ||rob[0].getY() == 301 ||rob[3].getY() == 302 ||rob[3].getY() == 303 ||rob[3].getY() == 304 ||rob[3].getY() == 305 ||rob[3].getY() == 306 ||rob[3].getY() == 307 ||rob[3].getY() == 308 ||rob[3].getY() == 309 && rob[3].getX() == 430) {
+	else if(winner == 4) {
 		JOptionPane.showMessageDialog(null, "Robot #4 Wins! Yay!");
 	}
-	else if(rob[4].getY() == 300 ||rob[0].getY() == 301 ||rob[4].getY() == 302 ||rob[4].getY() == 303 ||rob[4].getY() == 304 ||rob[4].getY() == 305 ||rob[4].getY() == 306 ||rob[4].getY() == 307 ||rob[4].getY() == 308 ||rob[4].getY() == 309 && rob[4].getX() == 440) {
+	else if(winner == 5) {
 		JOptionPane.showMessageDialog(null, "Robot #5 Wins! Yay!");
 	}
 	}
