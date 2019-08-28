@@ -41,32 +41,28 @@ public class _01_RobotRace {
 			for(int k = 0; k < rob.length; k++) {
 				Random randy = new Random();
 					for(int OwO = randy.nextInt(5); OwO > 0; OwO--) {
+						int bully = 0;
 						rob[k].turn(1);
 						rob[k].move(1);
-						//System.out.println(rob[k].getX());
-						//System.out.println(rob[k].getY());
-						if((rob[k].getX() == 389 ||
-							rob[k].getX() == 399 ||
-							rob[k].getX() == 419 ||
-							rob[k].getX() == 429 ||
-							rob[k].getX() == 439 )&&
-							(rob[k].getY() == 301)
-							) {
+						System.out.println(rob[k].getX() + "Robot: " + bully);
+						System.out.println(rob[k].getY() + "Robot: " + bully);
+						bully++;
+						if((rob[k].getX() == 400 || rob[k].getX() == 410 || rob[k].getX() == 420 || rob[k].getX() == 430 || rob[k].getX() == 440 )&&(rob[k].getY() >= 300 && rob[k].getY() <= 305)) {
 							yeet = true;
-							if(rob[k] == rob[1]) {
-								winner = 1;
-							}
-							else if(rob[k] == rob[2]) {
-								winner = 2;
-							}
-							else if(rob[k] == rob[3]) {
-								winner = 3;
-							}
-							else if(rob[k] == rob[4]) {
-								winner = 4;
-							}
-							else if(rob[k] == rob[5]) {
-								winner = 5;
+								if(rob[k].getX() == rob[0].getX()) {
+									winner = 1;
+									}
+								else if(rob[k].getX() == rob[1].getX()) {
+									winner = 2;
+									}
+								else if(rob[k].getX() == rob[2].getX()) {
+									winner = 3;
+									}
+								else if(rob[k].getX() == rob[3].getX()) {
+									winner = 4;
+									}
+								else if(rob[k].getX() == rob[4].getX()) {
+									winner = 5;
 							}
 						}
 					}
