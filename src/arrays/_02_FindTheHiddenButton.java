@@ -19,10 +19,11 @@ public class _02_FindTheHiddenButton implements ActionListener{
 	JFrame window;
 	JPanel panel;
 	
+	
 	//1. create an array of JButtons. Don't initialize it yet.
-	
 	//2 create an int variable called hiddenButton
-	
+	int hiddenButton = 0;
+	JButton[] yeet;
 	public static void main(String[] args) {
 		new _02_FindTheHiddenButton().start();
 	}
@@ -33,9 +34,30 @@ public class _02_FindTheHiddenButton implements ActionListener{
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//3.  Ask the user to enter a positive number and convert it to an int
-		
+		String number = JOptionPane.showInputDialog("Enter a Positive Number");
+		int num = Integer.parseInt(number);
 		//4. Initialize the array of JButtons to be the size of the int created in step 3
+		yeet = new JButton[num];
+		for(int i = 0; i < yeet.length; i++) {
+			JButton newButton = new JButton();
+			yeet[i] = newButton;
+			yeet[i].addActionListener(this);
+			panel.add(yeet[i]);
+		}
+		window.add(panel);
+		window.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		window.setVisible(true);
 		
+		Random randy = new Random();
+		hiddenButton = randy.nextInt(num);
+		yeet[hiddenButton].setText("ME");
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		yeet[hiddenButton].setText("");
 		//5. Make a for loop to iterate through the JButton array
 			//6. initialize each JButton in the array
 			//7. add the ActionListener to each JButton
@@ -65,7 +87,12 @@ public class _02_FindTheHiddenButton implements ActionListener{
 		JButton buttonClicked = (JButton)e.getSource();
 		
 		//17. if the hiddenButton is clicked, tell the user that they win.
-		
+		if(buttonClicked == yeet[hiddenButton]) {
+			JOptionPane.showMessageDialog(null, "You win!");
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Try Again");
+		}
 		//18. else tell them to try again
 	}
 }
